@@ -45,6 +45,10 @@ class Picture(CMSPlugin):
         help_text=_("Specifies an alternate text for an image, if the image"
                     "cannot be displayed.<br />Is also used by search engines"
                     "to classify the image."))
+    
+    is_custom_template = models.BooleanField(
+        _("Template"), blank=True, default=False, 
+        )
 
     longdesc = models.CharField(
         _("long description"), max_length=255, blank=True, null=True,

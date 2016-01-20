@@ -12,6 +12,11 @@ class PicturePlugin(CMSPluginBase):
     name = _("Picture")
     render_template = "cms/plugins/picture.html"
     text_enabled = True
+    
+    def get_render_template(self, context, instance, placeholder):
+        if instance.is_custom_template:
+            return "cms/plugins/custom.html"
+        return "cms/plugins/picture.html"
 
     def render(self, context, instance, placeholder):
         if instance.url:
